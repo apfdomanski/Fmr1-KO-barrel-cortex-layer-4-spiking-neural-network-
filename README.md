@@ -29,6 +29,8 @@ Some features of this model:
 - _All_ parameters tuned by experimental results from the above paper
 
 ---
+## Core functions:
+
 ## `L4sim_DesignNetwork.m`
 
 ![Cartoon Network](Screenshots/Picture1.jpg)
@@ -52,8 +54,6 @@ This function specifies the simulation parameters and builds the external pulse 
 ---
 ## `L4sim_Analyse.m`
 
-![Cartoon Network](Screenshots/Picture5.png)
-
 This function analyses sigle-trial simulation results and extracts statistics on Excitation/Inhibition balance in the network pool:
 - Population Ex/In balance:  Fraction of firing cells and smoothed spike density functions for each pool. 
 - Single cell Ex/In balance: Balance in input currents. 
@@ -61,3 +61,24 @@ This function analyses sigle-trial simulation results and extracts statistics on
 - Power spectral density LFP is simulated by taking multi-taper estimates of low-pass filtered summed input currents.
 - Summary stats on spike time and rate
 
+---
+## `L4sim_PlotResults.m`
+
+![Cartoon Network](Screenshots/Picture5.png)
+
+This function plots results of a single model trial:
+- Spike rasters and smoothed spike density plots
+- Simulated membrane potential and power spectra/spectrograms
+- Synaptic currents 
+- Measures of Excitation/Inhibition
+- Single cell firing summary stats
+
+N.B. frequency-domain analysis requires the Chronux toolbox, redistributed under the GNU  General Public License ver.2
+http://chronux.org/forum/ and "Observed Brain Dynamics", Partha Mitra and Hemant Bokil, Oxford University Press, New York, 2008.
+
+---
+## Example results
+
+## `Example_CurrentSteps.m`
+
+## `Example_STP.m`
