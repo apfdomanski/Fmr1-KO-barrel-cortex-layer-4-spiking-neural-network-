@@ -1,6 +1,6 @@
 ### Distorted Ex/In dynamics and pattern classification in a spiking model of Fmr1-KO cortical layer 4
 ---
-![Cartoon Network](Screenshots/Picture7.png)
+![Cartoon Network](Screenshots/Picture7_2.png)
 
 This MATLAB code accompanies the following BiorXiv Preprint: 
 
@@ -28,15 +28,20 @@ Some features of this model:
 - Realistic short-term depression at all synapses
 - _All_ parameters tuned by experimental results from the above paper
 
-
-`L4sim_DesignNetwork.m`
-
-This function builds intrinsic parameters and a synaptic connectivity  matrix for a recurrent spiking neural network with external stimulation and synapse-specific short-term plasticity.
-
 ---
+## `L4sim_DesignNetwork.m`
 
+![Cartoon Network](Screenshots/Picture1.jpg)
 
-![Cartoon Network](Screenshots/Picture11.png) 
+This function builds intrinsic parameters and a synaptic connectivity matrix for a recurrent spiking neural network with external stimulation and synapse-specific short-term plasticity.
+---
+## `L4sim_RunModel.m`
+
+![Cartoon Network](Screenshots/Picture1.jpg)
+
+This function runs a conductance-based spiking network simulation using predefined parameters for network connectivity and synapses. 
+Choice between leaky I&F and Izhikevich model neurons can be selected, short-term plasticity can be in/excluded and in-the-loop plotting can be configured based on input arguement switches.
+--
 
 
 
