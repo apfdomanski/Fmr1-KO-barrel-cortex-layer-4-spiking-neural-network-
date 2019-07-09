@@ -40,6 +40,7 @@ Some features of this model:
 ![Cartoon Network](Screenshots/Picture14.png)
 
 ---
+
 ## Core functions:
 
 ### `L4sim_DesignNetwork.m`
@@ -48,21 +49,21 @@ Some features of this model:
 
 This function builds intrinsic parameters and a synaptic connectivity matrix for a recurrent spiking neural network with external stimulation and synapse-specific short-term plasticity.
 
----
+
 ### `L4sim_RunModel.m`
 
 ![Cartoon Network](Screenshots/Picture4.png)
 
 This function runs a conductance-based spiking network simulation using predefined parameters for network connectivity and synapses. Choice between leaky I&F and Izhikevich model neurons can be selected, short-term plasticity can be in/excluded and in-the-loop plotting can be configured based on input arguement switches.
 
----
+
 ###  `L4sim_MakePulseInput.m`
 
 ![Cartoon Network](Screenshots/Picture2.png)
 
 This function specifies the simulation parameters and builds the external pulse input structure for the thalamocortical pulse-response simulation. Stimulation parameters are specified as independently tunable rhythmic Dirac deltas to each of the Ex and In pools.
 
----
+
 ### `L4sim_Analyse.m`
 
 This function analyses sigle-trial simulation results and extracts statistics on Excitation/Inhibition balance in the network pool:
@@ -72,7 +73,7 @@ This function analyses sigle-trial simulation results and extracts statistics on
 - Power spectral density LFP is simulated by taking multi-taper estimates of low-pass filtered summed input currents.
 - Summary stats on spike time and rate
 
----
+
 ### `L4sim_PlotResults.m`
 
 ![Cartoon Network](Screenshots/Picture5.png)
@@ -88,7 +89,10 @@ N.B. frequency-domain analysis requires the Chronux toolbox, redistributed under
 http://chronux.org/forum/ and "Observed Brain Dynamics", Partha Mitra and Hemant Bokil, Oxford University Press, New York, 2008.
 
 ---
-## Example results
+
+## Experiment 1) Test intrinsic tuning and connections
+
+- Recapitulates Figure S6
 
 ### `Example_CurrentSteps.m`
 
@@ -102,7 +106,7 @@ Plots example short-term plastic behaviour of synapses in response to repetitive
 
 ![Cartoon Network](Screenshots/Picture16.png)
 
-## Simulated Frequency response of Layer 4 network to patterned thalamocortical activity 
+## Experiment 2) Simulated Frequency response of Layer 4 network to patterned thalamocortical activity 
 
 - Recapitulates Figure 9
 
@@ -112,4 +116,47 @@ Plots example short-term plastic behaviour of synapses in response to repetitive
 ![Cartoon Network](Screenshots/Picture2.png)
 
 ![Cartoon Network](Screenshots/Picture3.png)
+
+---
+
+## Experiment 3) Examine thalamocortical pattern classification performance
+
+- Recapitulates Figure 10
+
+- Generate input pattern distractor sequences with `L4sim_MakeDistractorInput.m`
+
+
+### Single cell classification performance
+
+![Cartoon Network](Screenshots/Picture7_2.png)
+
+![Cartoon Network](Screenshots/Picture8.png) ![Cartoon Network](Screenshots/Picture9.png)
+
+- Run with `L4Sim_ExamplePatternSeparation.m`
+
+This script recapitulates the simulation analysis results for Fig 10A-C in the linked paper.
+This code plots example spike trains from single units in response to inputs with/without added distractors.
+Quantification of spike train modulation (change in rate, first spike time) is provided, as well as through a spike train metric 
+(van Rossum MC, Neural computation 2001 Apr;13(4):751-63)
+
+This code uses an optimised implementation of the van Rossum distance (Haughton C, Kreuz T, Network. 2012;23(1-2):48-58.). This dependency function is available online: provided (MATLAB) by Thomas Kreuz at: http://wwwold.fi.isc.cnr.it/users/thomas.kreuz/Source-Code/VanRossum.html 
+and (C++) by Conor Haughton at:
+https://sourceforge.net/p/spikemetrics/code/ci/default/tree/
+
+### Population level classification performance
+
+- Run with `L4sim_RunMultiPatternLoop.m`
+
+- Analyse with `metaAnalyseDistractors_ClassificationAccuracyVsNoUnits.m`
+
+- Spike trains from distractor stimulation trials are compared againt those from the reference condition using a multivariate population decoder.
+
+![Cartoon Network](Screenshots/Picture10.png)
+
+- Trials are iteratively withheld and the performance of classifiers trainied on the remaining N-1 trials is evaluated in successfully determining the presence/absence of the distractor in the witheld trial.
+- Population information content is then compared between genotypes as a function of the size of randomly drawn pools (ensembles) of neurons used for classification.
+
+![Cartoon Network](Screenshots/Picture11.png)
+
+---
 
