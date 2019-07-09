@@ -1,4 +1,4 @@
-### Distorted Ex/In dynamics and pattern classification in a spiking model of Fmr1-KO cortical layer 4
+### Distorted Ex/In dynamics and pattern classification in a spiking network model of _Fmr1-KO_ cortical layer IV
 ---
 ![Cartoon Network](Screenshots/Picture7_2.png)
 
@@ -34,15 +34,30 @@ Some features of this model:
 ![Cartoon Network](Screenshots/Picture1.jpg)
 
 This function builds intrinsic parameters and a synaptic connectivity matrix for a recurrent spiking neural network with external stimulation and synapse-specific short-term plasticity.
+
 ---
 ## `L4sim_RunModel.m`
 
-![Cartoon Network](Screenshots/Picture1.jpg)
+![Cartoon Network](Screenshots/Picture4.png)
 
-This function runs a conductance-based spiking network simulation using predefined parameters for network connectivity and synapses. 
-Choice between leaky I&F and Izhikevich model neurons can be selected, short-term plasticity can be in/excluded and in-the-loop plotting can be configured based on input arguement switches.
---
+This function runs a conductance-based spiking network simulation using predefined parameters for network connectivity and synapses. Choice between leaky I&F and Izhikevich model neurons can be selected, short-term plasticity can be in/excluded and in-the-loop plotting can be configured based on input arguement switches.
 
+---
+## `L4sim_MakePulseInput.m`
 
+![Cartoon Network](Screenshots/Picture2.png)
 
+This function specifies the simulation parameters and builds the external pulse input structure for the thalamocortical pulse-response simulation. Stimulation parameters are specified as independently tunable rhythmic Dirac deltas to each of the Ex and In pools.
+
+---
+## `L4sim_Analyse.m`
+
+![Cartoon Network](Screenshots/Picture5.png)
+
+This function analyses sigle-trial simulation results and extracts statistics on Excitation/Inhibition balance in the network pool:
+- Population Ex/In balance:  Fraction of firing cells and smoothed spike density functions for each pool. 
+- Single cell Ex/In balance: Balance in input currents. 
+- Correlation between In and Ex firing pools
+- Power spectral density LFP is simulated by taking multi-taper estimates of low-pass filtered summed input currents.
+- Summary stats on spike time and rate
 
