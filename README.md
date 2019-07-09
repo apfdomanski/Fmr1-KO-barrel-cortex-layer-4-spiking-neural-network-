@@ -1,6 +1,5 @@
 ### Distorted Ex/In dynamics and pattern classification in a spiking network model of _Fmr1-KO_ cortical layer IV
 ---
-![Cartoon Network](Screenshots/Picture7_2.png)
 
 This MATLAB code accompanies the following BiorXiv Preprint: 
 
@@ -22,37 +21,49 @@ http://www.gnu.org/copyleft/gpl.html
 
 ## Usage:
 This code builds a spiking network model of early postnatal _Fmr1-KO_ cortical layer 4, provides stimulation and analyses single cell and population output.
+
 Some features of this model:
-- Leaky Integrate-and-Fire model neurons with Conductance-based synapses and realistic intrinsic properties
-- Sparse, random connectivity between Ex and In neurons
-- Realistic short-term depression at all synapses
-- _All_ parameters tuned by experimental results from the above paper
+- Leaky Integrate-and-Fire model neurons with Conductance-based synapses and realistic intrinsic properties:
+
+![Cartoon Network](Screenshots/Picture15.png)
+
+- Sparse, random connectivity between Ex and In neurons:
+
+![Cartoon Network](Screenshots/Picture13.png)
+
+- Realistic short-term depression at all synapses:
+
+![Cartoon Network](Screenshots/Picture16.png)
+
+- _All_ parameters tuned by experimental results from the above paper:
+
+![Cartoon Network](Screenshots/Picture14.png)
 
 ---
 ## Core functions:
 
-## `L4sim_DesignNetwork.m`
+### `L4sim_DesignNetwork.m`
 
 ![Cartoon Network](Screenshots/Picture1.jpg)
 
 This function builds intrinsic parameters and a synaptic connectivity matrix for a recurrent spiking neural network with external stimulation and synapse-specific short-term plasticity.
 
 ---
-## `L4sim_RunModel.m`
+### `L4sim_RunModel.m`
 
 ![Cartoon Network](Screenshots/Picture4.png)
 
 This function runs a conductance-based spiking network simulation using predefined parameters for network connectivity and synapses. Choice between leaky I&F and Izhikevich model neurons can be selected, short-term plasticity can be in/excluded and in-the-loop plotting can be configured based on input arguement switches.
 
 ---
-## `L4sim_MakePulseInput.m`
+###  `L4sim_MakePulseInput.m`
 
 ![Cartoon Network](Screenshots/Picture2.png)
 
 This function specifies the simulation parameters and builds the external pulse input structure for the thalamocortical pulse-response simulation. Stimulation parameters are specified as independently tunable rhythmic Dirac deltas to each of the Ex and In pools.
 
 ---
-## `L4sim_Analyse.m`
+### `L4sim_Analyse.m`
 
 This function analyses sigle-trial simulation results and extracts statistics on Excitation/Inhibition balance in the network pool:
 - Population Ex/In balance:  Fraction of firing cells and smoothed spike density functions for each pool. 
@@ -62,7 +73,7 @@ This function analyses sigle-trial simulation results and extracts statistics on
 - Summary stats on spike time and rate
 
 ---
-## `L4sim_PlotResults.m`
+### `L4sim_PlotResults.m`
 
 ![Cartoon Network](Screenshots/Picture5.png)
 
@@ -79,6 +90,26 @@ http://chronux.org/forum/ and "Observed Brain Dynamics", Partha Mitra and Hemant
 ---
 ## Example results
 
-## `Example_CurrentSteps.m`
+### `Example_CurrentSteps.m`
 
-## `Example_STP.m`
+Plots a simulated single-cell response to injected current (F-I plot):
+
+![Cartoon Network](Screenshots/Picture15.png)
+
+### `Example_STP.m`
+
+Plots example short-term plastic behaviour of synapses in response to repetitive stimulation:
+
+![Cartoon Network](Screenshots/Picture16.png)
+
+## Simulated Frequency response of Layer 4 network to patterned thalamocortical activity 
+
+- Recapitulates Figure 9
+
+- Run with `L4sim_RunFullModelLoop.m` and `L4sim_RunMultiTrialLoop.m`
+- Analyse with `L4sim_metaAnalyseGroupData_FiringRate.m` and `L4sim_metaAnalyseGroupData_ExInBalance.m`
+
+![Cartoon Network](Screenshots/Picture2.png)
+
+![Cartoon Network](Screenshots/Picture3.png)
+
