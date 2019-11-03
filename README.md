@@ -1,12 +1,14 @@
 ### Distorted Ex/In dynamics and pattern classification in a spiking network model of _Fmr1-KO_ cortical layer IV
 ---
 
-This MATLAB code accompanies the following BiorXiv Preprint: 
+This MATLAB code accompanies the following paper: 
 
-Domanski APF, Booker S, Wyllie DJA, Isaac JTR, Kind PC (2018)
+Domanski APF, Booker S, Wyllie DJA, Isaac JTR, Kind PC (2019)
 "_Cellular and Synaptic Compensations Limit Circuit Disruption in Fmr1-KO Mouse but Fail to Prevent Deficits in Information Processing_"
 
-BiorXiv preprint: https://doi.org/10.1101/403725
+Nature Communications 2019 Oct 23;10(1):4814. 
+
+DOI: 10.1038/s41467-019-12736-y
 
 Author: Aleksander PF Domanski 2015-2019 University of Bristol, UK aleks.domanski@bristol.ac.uk
 
